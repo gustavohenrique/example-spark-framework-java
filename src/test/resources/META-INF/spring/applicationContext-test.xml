@@ -9,9 +9,9 @@
 
     <context:component-scan base-package="net.gustavohenrique.spotippos" />
 
-	<bean id="propertyRepository" class="net.gustavohenrique.spotippos.repository.PropertyRepository" />
-	<bean id="propertyService" class="net.gustavohenrique.spotippos.services.PropertyService" />
-	<bean id="propertyValidator" class="net.gustavohenrique.spotippos.validators.PropertyValidator" />
-    <bean id="propertyController" class="net.gustavohenrique.spotippos.controllers.PropertyController" />
+	<bean id="propertyRepository" class="net.gustavohenrique.spotippos.domains.property.PropertyRepository" />
+	<bean id="propertyService" class="net.gustavohenrique.spotippos.domains.property.PropertyService" />
+	<bean id="propertyValidator" class="net.gustavohenrique.spotippos.domains.property.PropertyValidator" />
+    <bean id="propertyController" class="net.gustavohenrique.spotippos.domains.property.PropertyController" />
 
 </beans>

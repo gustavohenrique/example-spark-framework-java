@@ -1,4 +1,4 @@
-package net.gustavohenrique.spotippos.controllers;
+package net.gustavohenrique.spotippos.domains.property;
 
 import java.util.HashMap;
 import java.util.List;
@@ -9,11 +9,7 @@ import org.springframework.stereotype.Controller;
 
 import net.gustavohenrique.spotippos.exceptions.RequestException;
 import net.gustavohenrique.spotippos.exceptions.ValidationException;
-import net.gustavohenrique.spotippos.models.Property;
-import net.gustavohenrique.spotippos.models.Province;
-import net.gustavohenrique.spotippos.services.PropertyService;
 import net.gustavohenrique.spotippos.util.JsonUtil;
-import net.gustavohenrique.spotippos.validators.PropertyValidator;
 
 @Controller
 public class PropertyController {

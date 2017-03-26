@@ -1,11 +1,11 @@
-package net.gustavohenrique.spotippos.models;
+package net.gustavohenrique.spotippos.domains.property;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
-import net.gustavohenrique.spotippos.validators.annotations.Number;
-import net.gustavohenrique.spotippos.validators.annotations.Required;
+import net.gustavohenrique.spotippos.interfaces.Number;
+import net.gustavohenrique.spotippos.interfaces.Required;
 
 public class Property {
 

@@ -1,4 +1,4 @@
-package net.gustavohenrique.spotippos.models;
+package net.gustavohenrique.spotippos.domains.property;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -1,4 +1,4 @@
-package net.gustavohenrique.spotippos.validators;
+package net.gustavohenrique.spotippos.domains.property;
 
 import java.lang.reflect.Field;
 
@@ -6,8 +6,9 @@ import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
 import net.gustavohenrique.spotippos.exceptions.ValidationException;
-import net.gustavohenrique.spotippos.validators.annotations.Number;
-import net.gustavohenrique.spotippos.validators.annotations.Required;
+import net.gustavohenrique.spotippos.interfaces.Number;
+import net.gustavohenrique.spotippos.interfaces.Required;
+import net.gustavohenrique.spotippos.interfaces.Validator;
 
 @Component
 public class PropertyValidator implements Validator {

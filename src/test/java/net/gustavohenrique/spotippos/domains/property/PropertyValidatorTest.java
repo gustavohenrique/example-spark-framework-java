@@ -1,12 +1,14 @@
-package net.gustavohenrique.spotippos.validators;
+package net.gustavohenrique.spotippos.domains.property;
 
 import java.math.BigDecimal;
 
 import org.junit.Test;
 
 import junit.framework.TestCase;
+import net.gustavohenrique.spotippos.domains.property.Property;
+import net.gustavohenrique.spotippos.domains.property.PropertyValidator;
 import net.gustavohenrique.spotippos.exceptions.ValidationException;
-import net.gustavohenrique.spotippos.models.Property;
+import net.gustavohenrique.spotippos.interfaces.Validator;
 
 public class PropertyValidatorTest extends TestCase {
 

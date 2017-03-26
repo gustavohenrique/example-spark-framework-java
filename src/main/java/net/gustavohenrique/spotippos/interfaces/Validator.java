@@ -1,4 +1,4 @@
-package net.gustavohenrique.spotippos.validators;
+package net.gustavohenrique.spotippos.interfaces;
 
 import net.gustavohenrique.spotippos.exceptions.ValidationException;
 

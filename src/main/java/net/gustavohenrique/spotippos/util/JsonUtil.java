@@ -7,8 +7,8 @@ import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
 import com.google.gson.reflect.TypeToken;
 
+import net.gustavohenrique.spotippos.domains.property.Property;
 import net.gustavohenrique.spotippos.exceptions.RequestException;
-import net.gustavohenrique.spotippos.models.Property;
 
 public class JsonUtil {
 

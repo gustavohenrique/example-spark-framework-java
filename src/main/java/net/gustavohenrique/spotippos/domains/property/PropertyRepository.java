@@ -1,4 +1,4 @@
-package net.gustavohenrique.spotippos.repository;
+package net.gustavohenrique.spotippos.domains.property;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -7,9 +7,6 @@ import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.stereotype.Repository;
-
-import net.gustavohenrique.spotippos.models.Property;
-import net.gustavohenrique.spotippos.models.Province;
 
 @Repository
 public class PropertyRepository {

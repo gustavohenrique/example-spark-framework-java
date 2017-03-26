@@ -1,11 +1,12 @@
-package net.gustavohenrique.spotippos.controllers;
+package net.gustavohenrique.spotippos.domains.property;
 
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import net.gustavohenrique.spotippos.SpringTestCase;
+import net.gustavohenrique.spotippos.domains.property.Property;
+import net.gustavohenrique.spotippos.domains.property.PropertyController;
 import net.gustavohenrique.spotippos.exceptions.RequestException;
-import net.gustavohenrique.spotippos.models.Property;
 import net.gustavohenrique.spotippos.util.JsonUtil;
 import net.gustavohenrique.spotippos.util.JsonUtil.JsonProperty;
 

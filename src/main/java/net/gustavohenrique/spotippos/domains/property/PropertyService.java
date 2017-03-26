@@ -1,4 +1,4 @@
-package net.gustavohenrique.spotippos.services;
+package net.gustavohenrique.spotippos.domains.property;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -9,9 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import net.gustavohenrique.spotippos.exceptions.RequestException;
-import net.gustavohenrique.spotippos.models.Property;
-import net.gustavohenrique.spotippos.models.Province;
-import net.gustavohenrique.spotippos.repository.PropertyRepository;
 
 @Service
 public class PropertyService {

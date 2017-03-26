@@ -1,4 +1,4 @@
-package net.gustavohenrique.spotippos.services;
+package net.gustavohenrique.spotippos.domains.property;
 
 import java.util.Arrays;
 import java.util.List;
@@ -8,10 +8,11 @@ import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import net.gustavohenrique.spotippos.SpringTestCase;
+import net.gustavohenrique.spotippos.domains.property.Property;
+import net.gustavohenrique.spotippos.domains.property.PropertyRepository;
+import net.gustavohenrique.spotippos.domains.property.PropertyService;
+import net.gustavohenrique.spotippos.domains.property.Province;
 import net.gustavohenrique.spotippos.exceptions.RequestException;
-import net.gustavohenrique.spotippos.models.Property;
-import net.gustavohenrique.spotippos.models.Province;
-import net.gustavohenrique.spotippos.repository.PropertyRepository;
 
 public class PropertyServiceTest extends SpringTestCase {
 

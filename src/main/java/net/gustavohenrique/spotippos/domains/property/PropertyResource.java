@@ -1,9 +1,8 @@
-package net.gustavohenrique.spotippos.resources;
+package net.gustavohenrique.spotippos.domains.property;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import net.gustavohenrique.spotippos.controllers.PropertyController;
 import spark.Spark;
 
 @Component

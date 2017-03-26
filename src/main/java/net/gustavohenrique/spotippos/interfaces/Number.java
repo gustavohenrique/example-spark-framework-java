@@ -1,4 +1,4 @@
-package net.gustavohenrique.spotippos.validators.annotations;
+package net.gustavohenrique.spotippos.interfaces;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
