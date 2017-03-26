@@ -35,6 +35,24 @@ public class Property {
 	@Number(min=20, max=240)
 	public int squareMeters;
 	
-	public List<Province> provinces = new ArrayList<Province>();
+	private String[] provinces;
+	
+	public String[] getProvinces() {
+		return provinces;
+	}
+	
+	public void setProvinces(String[] provinces) {
+		this.provinces = provinces;
+	}
+	
+	public void setProvinces(List<Province> provinces) {
+		List<String> list = new ArrayList<String>();
+		for (Province province : provinces) {
+			list.add(province.name);
+		}
+		String[] array = new String[list.size()];
+		list.toArray(array);
+		this.provinces = array;
+	}
 
 }

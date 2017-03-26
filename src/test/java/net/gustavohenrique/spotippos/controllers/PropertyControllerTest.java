@@ -1,18 +1,15 @@
 package net.gustavohenrique.spotippos.controllers;
 
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import junit.framework.TestCase;
+import net.gustavohenrique.spotippos.SpringTestCase;
+import net.gustavohenrique.spotippos.exceptions.RequestException;
 import net.gustavohenrique.spotippos.models.Property;
 import net.gustavohenrique.spotippos.util.JsonUtil;
+import net.gustavohenrique.spotippos.util.JsonUtil.JsonProperty;
 
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(value="/META-INF/spring/applicationContext-test.xml")
-public class PropertyControllerTest extends TestCase {
+public class PropertyControllerTest extends SpringTestCase {
 
 	@Autowired
 	private PropertyController controller;
@@ -42,8 +39,8 @@ public class PropertyControllerTest extends TestCase {
 			Property property = JsonUtil.fromJson(created, Property.class);
 			assertEquals(666, property.id);
 			assertEquals("Imóvel código 1, com 5 quartos e 4 banheiros", property.title);
-			assertEquals(1, property.provinces.size());
-			assertEquals("Scavy", property.provinces.get(0).name);
+			assertEquals(1, property.getProvinces().length);
+			assertEquals("Scavy", property.getProvinces()[0]);
 		}
 		catch (Exception e) {}
 	}
@@ -55,8 +52,8 @@ public class PropertyControllerTest extends TestCase {
 			Property property = JsonUtil.fromJson(data, Property.class);
 			assertEquals(665, property.id);
 			assertEquals("Imóvel código 665, com 1 quarto e 1 banheiro", property.title);
-			assertEquals(1, property.provinces.size());
-			assertEquals("Ruja", property.provinces.get(0).name);
+			assertEquals(1, property.getProvinces().length);
+			assertEquals("Ruja", property.getProvinces()[0]);
 		}
 		catch (Exception e) {}
 	}
@@ -68,5 +65,14 @@ public class PropertyControllerTest extends TestCase {
 			fail();
 		}
 		catch (Exception e) {}
+	}
+	
+	@Test
+	public void testFindPropertiesByArea() throws RequestException {
+		String data = controller.findByArea(0, 0, 1400, 1000);
+		JsonProperty result = JsonUtil.fromJsonProperty(data);
+		assertEquals(2, result.foundProperties);
+		assertEquals("Ruja", result.properties.get(0).getProvinces()[0]);
+		assertEquals("Scavy", result.properties.get(1).getProvinces()[0]);
 	}
 }

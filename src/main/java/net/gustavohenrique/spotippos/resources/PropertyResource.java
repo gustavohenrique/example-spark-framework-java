@@ -49,6 +49,26 @@ public class PropertyResource {
 				}
 				catch (Exception e) {
 					statusCode = 404;
+					result = e.getMessage();
+				}
+				res.status(statusCode);
+				res.type(JSON);
+				return result;
+			});
+			
+			Spark.get("", (req, res) -> {
+				int statusCode = 200;
+				String result = "";
+				try {
+					int ax = Integer.valueOf(req.raw().getParameter("ax"));
+					int ay = Integer.valueOf(req.raw().getParameter("ay"));
+					int bx = Integer.valueOf(req.raw().getParameter("bx"));
+					int by = Integer.valueOf(req.raw().getParameter("by"));
+					result = controller.findByArea(ax, ay, bx, by);
+				}
+				catch (NumberFormatException e) {
+					statusCode = BAD_REQUEST;
+					result = "Invalid coordinates.";
 				}
 				res.status(statusCode);
 				res.type(JSON);

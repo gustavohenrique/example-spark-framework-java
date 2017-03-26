@@ -10,6 +10,5 @@ public class Main {
     public static void main(String[] args) {
     	port(9999);
     	new AnnotationConfigApplicationContext("net.gustavohenrique.spotippos").start();
-    	//.registerShutdownHook();
     }
 }
