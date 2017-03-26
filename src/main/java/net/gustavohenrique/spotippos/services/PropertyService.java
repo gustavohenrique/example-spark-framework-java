@@ -20,4 +20,12 @@ public class PropertyService {
 		return propertyDao.create(property);
 	}
 
+	public Property findById(int id) throws Exception {
+		Property property = propertyDao.findById(id);
+		if (property == null) {
+			throw new Exception("Property not found using ID=" + id);
+		}
+		return property;
+	}
+
 }

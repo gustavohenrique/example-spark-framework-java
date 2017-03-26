@@ -26,7 +26,7 @@ public class PropertyController {
 	@Autowired
 	public PropertyValidator validator;
 	
-	public Property create(String data) throws RequestException, ValidationException {
+	public String create(String data) throws RequestException, ValidationException {
 		if (data == null || "".equals(data)) {
 			throw new RequestException("No data sent via POST.");
 		}
@@ -37,7 +37,13 @@ public class PropertyController {
 			throw new RequestException("No provinces found with coordinates " + property.x + "," + property.y);
 		}
 		property.provinces = provinces;
-		return propertyService.create(property);
+		Property created = propertyService.create(property);
+		return JsonUtil.toJson(created);
+	}
+
+	public String findById(int id) throws Exception {
+		Property property = propertyService.findById(id);
+		return JsonUtil.toJson(property);
 	}
 
 }

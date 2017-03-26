@@ -4,8 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import net.gustavohenrique.spotippos.controllers.PropertyController;
-import net.gustavohenrique.spotippos.models.Property;
-import net.gustavohenrique.spotippos.util.JsonUtil;
 import spark.Spark;
 
 @Component
@@ -24,12 +22,33 @@ public class PropertyResource {
 				int statusCode = CREATED;
 				String result = "";
 				try {
-					Property created = controller.create(req.body());
-					result = JsonUtil.toJson(created);
+					result = controller.create(req.body());
 				}
 				catch (Exception b) {
 					statusCode = BAD_REQUEST;
 					result = b.getMessage();
+				}
+				res.status(statusCode);
+				res.type(JSON);
+				return result;
+			});
+			
+			Spark.get("/:id", (req, res) -> {
+				int statusCode = 200;
+				String result = "";
+				int id = 0;
+				try {
+					id = Integer.valueOf(req.params(":id"));
+				}
+				catch (Exception e) {
+					statusCode = BAD_REQUEST;
+					result = "Invalid ID.";
+				}
+				try {
+					result = controller.findById(id);
+				}
+				catch (Exception e) {
+					statusCode = 404;
 				}
 				res.status(statusCode);
 				res.type(JSON);

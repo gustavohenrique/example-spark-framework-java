@@ -42,4 +42,13 @@ public class PropertyDao {
 		return Arrays.asList(property);
 	}
 
+	public Property findById(int id) {
+		for (Property property : properties) {
+			if (property.id == id) {
+				return property;
+			}
+		}
+		return null;
+	}
+
 }
