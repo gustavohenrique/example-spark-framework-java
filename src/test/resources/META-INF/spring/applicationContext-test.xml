@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:c="http://www.springframework.org/schema/c"
+    xmlns:p="http://www.springframework.org/schema/p" xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+    <context:component-scan base-package="net.gustavohenrique.spotippos" />
+
+	<bean id="propertyService" class="net.gustavohenrique.spotippos.services.PropertyService" />
+	<bean id="provinceService" class="net.gustavohenrique.spotippos.services.ProvinceService" />
+	
+	<bean id="propertyValidator" class="net.gustavohenrique.spotippos.validators.PropertyValidator" />
+	
+    <bean id="propertyController" class="net.gustavohenrique.spotippos.controllers.PropertyController" />
+
+</beans>
