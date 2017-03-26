@@ -38,7 +38,7 @@ public class PropertyControllerTest extends TestCase {
 				"\"squareMeters\": 210" +
 			"}";
 			Property created = propertyController.create(data);
-			assertEquals(1, created.id);
+			assertEquals(666, created.id);
 			assertEquals("Imóvel código 1, com 5 quartos e 4 banheiros", created.title);
 			assertEquals(1, created.provinces.size());
 			assertEquals("Scavy", created.provinces.get(0).name);

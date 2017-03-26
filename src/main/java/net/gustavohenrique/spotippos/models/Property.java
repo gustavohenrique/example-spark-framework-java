@@ -23,7 +23,7 @@ public class Property {
 	@Number(min=0, max=1400)
 	public int x;
 	
-	@Number(min=0, max=1400)
+	@Number(min=0, max=1000)
 	public int y;
 	
 	@Number(min=1, max=5)

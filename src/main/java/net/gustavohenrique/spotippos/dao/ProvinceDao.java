@@ -19,20 +19,10 @@ public class ProvinceDao {
 			Map<String, Integer> upperLeft = province.boundaries.get("upperLeft");
 			Map<String, Integer> bottomRight = province.boundaries.get("bottomRight");
 			
-			Integer ax = upperLeft.get("x");
-			Integer ay = upperLeft.get("y");
-			Integer bx = bottomRight.get("x");
-			Integer by = bottomRight.get("y");
-			
-			if (upperLeft.get("x") > bottomRight.get("x")) {
-				ax = bottomRight.get("x");
-				bx = upperLeft.get("x");
-			}
-			
-			if (upperLeft.get("y") > bottomRight.get("y")) {
-				ay = bottomRight.get("y");
-				by = upperLeft.get("y");
-			}
+			Integer ax = Math.min(upperLeft.get("x"), bottomRight.get("x"));
+			Integer ay = Math.min(upperLeft.get("y"), bottomRight.get("y"));
+			Integer bx = Math.max(upperLeft.get("x"), bottomRight.get("x"));
+			Integer by = Math.max(upperLeft.get("y"), bottomRight.get("y"));
 			
 			if (isPropertyInsideRectangularArea(property, ax, ay, bx, by)) {
 				result.add(province);
@@ -47,44 +37,21 @@ public class ProvinceDao {
 	
 	private List<Province> getProvinces() {
 		List<Province> provinces = new ArrayList<Province>();
-		
-		Province gode = new Province();
-		gode.name = "Gode";
-		gode.boundaries.put("upperLeft", new HashMap<String, Integer>() {{ put("x", 0); put("y", 1000); }});
-		gode.boundaries.put("bottomRight", new HashMap<String, Integer>() {{ put("x", 600); put("y", 500); }});
-		provinces.add(gode);
-		
-		Province ruja = new Province();
-		ruja.name = "Ruja";
-		ruja.boundaries.put("upperLeft", new HashMap<String, Integer>() {{ put("x", 400); put("y", 1000); }});
-		ruja.boundaries.put("bottomRight", new HashMap<String, Integer>() {{ put("x", 1100); put("y", 500); }});
-		provinces.add(ruja);
-		
-		Province jaby = new Province();
-		jaby.name = "Jaby";
-		jaby.boundaries.put("upperLeft", new HashMap<String, Integer>() {{ put("x", 1100); put("y", 1000); }});
-		jaby.boundaries.put("bottomRight", new HashMap<String, Integer>() {{ put("x", 1400); put("y", 500); }});
-		provinces.add(jaby);
-		
-		Province scavy = new Province();
-		scavy.name = "Scavy";
-		scavy.boundaries.put("upperLeft", new HashMap<String, Integer>() {{ put("x", 0); put("y", 500); }});
-		scavy.boundaries.put("bottomRight", new HashMap<String, Integer>() {{ put("x", 600); put("y", 0); }});
-		provinces.add(scavy);
-		
-		Province groola = new Province();
-		groola.name = "Groola";
-		groola.boundaries.put("upperLeft", new HashMap<String, Integer>() {{ put("x", 600); put("y", 500); }});
-		groola.boundaries.put("bottomRight", new HashMap<String, Integer>() {{ put("x", 800); put("y", 0); }});
-		provinces.add(groola);
-		
-		Province nova = new Province();
-		nova.name = "Scavy";
-		nova.boundaries.put("upperLeft", new HashMap<String, Integer>() {{ put("x", 800); put("y", 500); }});
-		nova.boundaries.put("bottomRight", new HashMap<String, Integer>() {{ put("x", 1400); put("y", 0); }});
-		provinces.add(nova);
-		
+		provinces.add(fake("Gode", 0, 1000, 600, 500));
+		provinces.add(fake("Ruja", 400, 1000, 1100, 500));
+		provinces.add(fake("Jaby", 1100, 1000, 1400, 500));
+		provinces.add(fake("Scavy", 0, 500, 600, 0));
+		provinces.add(fake("Groola", 600, 500, 800, 0));
+		provinces.add(fake("Nova", 800, 500, 1400, 0));
 		return provinces;
+	}
+
+	private Province fake(final String name, final int ax, final int ay, final int bx, final int by) {
+		Province province = new Province();
+		province.name = name;
+		province.boundaries.put("upperLeft", new HashMap<String, Integer>() {{ put("x", ax); put("y", ay); }});
+		province.boundaries.put("bottomRight", new HashMap<String, Integer>() {{ put("x", bx); put("y", by); }});
+		return province;
 	}
 
 }
