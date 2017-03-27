@@ -1,38 +1,40 @@
-example-spark-framework-java
-============================
-
 ## Running as Java Standalone
 
-```
-$ git clone <this repo>
-$ cd example-spark-framework-java
-$ mvn package && java -jar target/spotippos-1.0-SNAPSHOT-jar-with-dependencies.jar
-```
+#### Download the latest releases
+https://github.com/gustavohenrique/example-spark-framework-java/releases
 
-## Running using Docker
+#### or
 
 ```
-$ docker run -d -p 9999:9999 gustavohenrique/example-spark-framework-java
+git clone https://github.com/gustavohenrique/example-spark-framework-java.git
+cd example-spark-framework-java
+mvn package && java -jar target/spotippos-1.0-SNAPSHOT-jar-with-dependencies.jar
 ```
 
-## Using
-
-### Adding Property
+## Running with Docker
 
 ```
-$ curl -XPOST -H "content-type:application/json" -d '{"title": "Imóvel código 1, com 5 quartos e 4 banheiros", "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", "price": 1250000, "x": 222, "y": 444, "beds": 4, "baths": 3, "squareMeters": 210}' "http://localhost:9999/properties"
+docker run -d -p 9999:9999 gustavohenrique/example-spark-framework-java
 ```
 
-### Finding a Property by ID
+## Playing with the REST Api
+
+#### Adding a Property
 
 ```
-$ curl -H "content-type:application/json" "http://localhost:9999/properties/665"
+curl -XPOST -H "content-type:application/json" -d '{"title": "Imóvel código 1, com 5 quartos e 4 banheiros", "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", "price": 1250000, "x": 222, "y": 444, "beds": 4, "baths": 3, "squareMeters": 210}' "http://localhost:9999/properties/"
 ```
 
-### Finding Properties by area
+#### Finding a Property by ID
 
 ```
-$ curl -H "content-type:application/json" "http://localhost:9999/properties?ax=0&ay=0&bx=1000&by=1400"
+curl -H "content-type:application/json" "http://localhost:9999/properties/665"
+```
+
+#### Finding Properties by area
+
+```
+curl -H "content-type:application/json" "http://localhost:9999/properties?ax=0&ay=0&bx=1000&by=1400"
 ```
 
 ## License

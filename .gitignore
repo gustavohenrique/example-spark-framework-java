@@ -5,3 +5,4 @@ target
 .project
 .eclipse
 .settings
+.DS_Store
